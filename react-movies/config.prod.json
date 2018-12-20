@@ -1,0 +1,12 @@
+{
+
+
+
+
+"baseUrl": "198.199.125.153.80",
+"enviroment": "production",
+"reactUrl": "198.199.125.153.80",
+"backendPort":"80"
+
+
+}
