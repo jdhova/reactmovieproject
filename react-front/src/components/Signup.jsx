@@ -15,24 +15,27 @@ class Signup extends Component {
 
     handleSubmit = (e) => {     
         e.preventDefault();
-        axios.post(`${config.backendUrl}/Signup`,  
-        {withCredentials: true,
-         method: 'post',
-         data: {username: this.state.username,
-                password: this.state.password,
-                firstname: this.state.firstname,
-                lastname: this.state.lastname
+        debugger;
+        axios(`${config.backendUrl}/Signup`,  
+            {withCredentials: true,
+            method: 'post',
+            data: {username: this.state.username,
+                    password: this.state.password,
+                    firstname: this.state.firstname,
+                    lastname: this.state.lastname
+                }
             }
-        }) 
-        .then((result)=> {    
+        ) 
+        .then((result)=> {  
+            this.props.history.push("/signin")
         })
         .catch((err)=>{
+            debugger
           })    
     }
 
 
     handleOnChange = (e) => {
-        //debugger
         var objectData = {}
         objectData[e.target.name] = e.target.value
         //debugger
@@ -49,13 +52,13 @@ class Signup extends Component {
                     <input className= "un"onChange={this.handleOnChange} name="username" type="text" placeholder="username"/>
                     <input className= "pw"onChange={this.handleOnChange} name="password"  type="password" placholder="password"/>
                     <input className= "btnn" type="submit" value='submit'/>
+                    
                 </form>
             </div>
         )
     }
 }
 
-// return <p><Link to="/Signin">Sign-in</Link></p> 
 
 export default Signup
 

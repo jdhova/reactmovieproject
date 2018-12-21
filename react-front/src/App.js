@@ -29,7 +29,7 @@ class App extends Component {
        <div>  
           <Route exact path="/" render={(props)=> <Signin  logInHandler={this.logInHandler}/>} />
           <Route path="/Signup" component={Signup} />
-          <Route path="/Signin" render={(props)=> <Signin  logInHandler={this.logInHandler}/>} />
+          <Route path="/Signin" render={(props)=> <Signin  {...props}  logInHandler={this.logInHandler}/>} />
           <Route path="/search" render={props =>< Search {...props} isLoggedIn={this.state.isLoggedIn} />} /> 
           {this.state.isLoggedIn? <Redirect to="/search"/>: <div></div>}
         </div>

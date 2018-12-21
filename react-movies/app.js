@@ -7,6 +7,7 @@ const cors = require("cors")
 const bcrypt = require('bcrypt')
 // import config from "../config.json"
 var config = require('./config.json')
+const port = config.port
 
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(cookieParser("JudesAwesome"));
 if(config.enviroment === "development"){
     app.use(express.static(path.join(__dirname, 'public')));
 }
+
 app.use(cors({
     origin: [`${config.backendUrl}`, `${config.backendUrl}`],
     credentials: true
@@ -40,7 +42,7 @@ if(config.enviroment === "production") {
 
 
 // MongoDB Connect
-
+// app.listen(port) new connection
 // app.listen(5000, () => {
 //     console.log('Back end working port 5000')
 // })

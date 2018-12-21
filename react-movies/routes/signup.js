@@ -28,13 +28,13 @@ router.post("/", (req, res) => {
 
   debugger
 
-  bcrypt.hash(req.body.data.password, 5, (err, hash) => {
+  bcrypt.hash(req.body.password, 5, (err, hash) => {
     debugger
       if (err) console.log('its a hash errooooor',err) 
       User.create({
-          firstname: req.body.data.firstname,
-          lastname: req.body.data.lastname,
-          username: req.body.data.username,
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          username: req.body.username,
           password: hash
       })
       .then((result) =>{
